@@ -1,6 +1,6 @@
 /* Xtensa/Elf configuration.
    Derived from the configuration for GCC for Intel i386 running Linux.
-   Copyright (C) 2001-2022 Free Software Foundation, Inc.
+   Copyright (C) 2001-2021 Free Software Foundation, Inc.
 
 This file is part of GCC.
 
@@ -52,11 +52,11 @@ along with GCC; see the file COPYING3.  If not see
   %{mabi=call0:--abi-call0}"
 
 #undef LIB_SPEC
-#define LIB_SPEC "-lc -lsim -lc -lhandlers-sim -lhal"
+#define LIB_SPEC "-lc -lnosys -lc"
 
 #undef STARTFILE_SPEC
 #define STARTFILE_SPEC \
-  "crt1-sim%O%s crt0%O%s crti%O%s crtbegin%O%s _vectors%O%s"
+  "crt0%O%s crti%O%s crtbegin%O%s"
 
 #undef ENDFILE_SPEC
 #define ENDFILE_SPEC "crtend%O%s crtn%O%s"  
