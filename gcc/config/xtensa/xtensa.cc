@@ -901,7 +901,7 @@ gen_conditional_move (enum rtx_code code, machine_mode mode,
 	  code = GE;
 	  op1 = const0_rtx;
 	}
-      cmp = gen_rtx_fmt_ee (code, VOIDmode, cc0_rtx, const0_rtx);
+      cmp = gen_rtx_fmt_ee (code, VOIDmode, pc_rtx, const0_rtx);
 
       if (boolean_operator (cmp, VOIDmode))
 	{
@@ -2735,7 +2735,7 @@ void
 print_operand (FILE *file, rtx x, int letter)
 {
   if (!x)
-    error ("PRINT_OPERAND null pointer");
+    error ("%<PRINT_OPERAND%> null pointer");
 
   switch (letter)
     {
@@ -2892,7 +2892,7 @@ void
 print_operand_address (FILE *file, rtx addr)
 {
   if (!addr)
-    error ("PRINT_OPERAND_ADDRESS, null pointer");
+    error ("%<PRINT_OPERAND_ADDRESS%>, null pointer");
 
   switch (GET_CODE (addr))
     {
@@ -4005,7 +4005,7 @@ xtensa_multibss_section_type_flags (tree decl, const char *name, int reloc)
 	flags |= SECTION_BSS;  /* @nobits */
       else
 	warning (0, "only uninitialized variables can be placed in a "
-		 ".bss section");
+		 "%<.bss%> section");
     }
 
   return flags;
